@@ -1,0 +1,26 @@
+bool is_safe(int node,bool graph[101][101],vector<int> &color,int new_color){
+    for(int i=0;i<101;i++){
+        if(graph[node][i]){
+            if(color[i] == new_color) return false;
+        }
+    }
+    return true;
+}
+
+bool solve(int node,int m,bool graph[101][101],int n,vector<int> &color){
+    if(node == n) return true;
+    
+    for(int i=1;i<=m;i++){
+        if(is_safe(node,graph,color,i)){
+            color[node] = i;
+            if(solve(node+1,m,graph,n,color)) return true;
+            color[node] = -1;
+        }
+    }
+    return false;
+}
+
+bool graphColoring(bool graph[101][101], int m, int n) {
+    vector<int> color(n,-1);
+    return solve(0,m,graph,n,color);
+}
