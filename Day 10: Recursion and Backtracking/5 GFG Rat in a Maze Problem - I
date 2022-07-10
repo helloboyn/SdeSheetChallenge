@@ -1,0 +1,36 @@
+class Solution{
+   public:
+   vector<string>ans;
+   int size;
+   int dx[4]={1,-1,0,0};
+   int dy[4]={0,0,1,-1};
+   char c[4]={'D','U','R','L'};
+   void solve(int i,int j,vector<vector<int>> &m,string &s){
+       if(i==size-1 && j==size-1){
+           ans.push_back(s);
+           return;
+       }
+       m[i][j]=0;
+       for(int p=0;p<4;p++){
+           int a=i+dx[p];
+           int b=j+dy[p];
+           if(a>=0 && b>=0 && a<size && b<size && m[a][b]==1){
+               s=s+c[p];
+               solve(a,b,m,s);
+               s=s.substr(0,s.length()-1);
+           }
+       }
+       m[i][j]=1;
+       
+   }
+   vector<string> findPath(vector<vector<int>> &m, int n) {
+       ans.clear();
+       size=n;
+       // Your code goes here
+       if(m[0][0]==0 ||m[n-1][n-1]==0)return ans;
+       string s="";
+       solve(0,0,m,s);
+       return ans;
+       
+   }
+};
