@@ -1,0 +1,17 @@
+ void dfs(TreeNode*A,int key,vector<int>&ans)
+     {
+         if(!A)return;
+         ans.push_back(A->val);
+         dfs(A->left,key,ans);
+         if(ans.back()==key)return;
+         dfs(A->right,key,ans);
+         if(ans.back()==key)return;
+         ans.pop_back();
+         return;
+     }
+     
+    vector<int> Solution::solve(TreeNode* A, int B) {
+        vector<int>ans;
+        dfs(A,B,ans);
+        return ans;
+    }
