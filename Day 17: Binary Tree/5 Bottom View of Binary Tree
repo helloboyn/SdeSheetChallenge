@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    vector <int> bottomView(Node *root) {
+      map<int,int> dx_info;
+      queue<pair<Node*,int>> q;
+      q.push(make_pair(root,0));
+      while(!q.empty()){
+          Node *temp=q.front().first;
+          int dx=q.front().second;
+          dx_info[dx]=temp->data;
+          if(temp->left)
+           q.push(make_pair(temp->left,dx-1));
+          if(temp->right)
+           q.push(make_pair(temp->right,dx+1));
+          q.pop();
+      }
+      vector<int> ans;
+      for(pair<int,int> p:dx_info)
+       ans.push_back(p.second);
+      return ans;
+   }
+};
