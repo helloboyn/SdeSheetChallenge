@@ -1,0 +1,32 @@
+void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
+{
+
+    // Your code goes here
+    while(root){
+        if(root->key==key){
+            Node* temp;
+            if(root->left!=NULL){
+                temp = root->left;
+                while(temp->right){   //go right until NULL
+                    temp=temp->right;
+                }
+                pre = temp;           //max on the left subtree
+            }
+            if(root->right!=NULL){
+                temp = root->right;
+                while(temp->left){    //go left until NULL
+                    temp=temp->left;  
+                }
+                suc = temp;           //min in the right subtree
+            }
+            break;
+        }
+        if(root->key>key){
+            suc=root;
+            root=root->left;
+        }else{
+            pre = root;
+            root=root->right;
+        }
+    }
+}
