@@ -1,0 +1,15 @@
+int floorInBST(TreeNode<int> * root, int X)
+{
+    int ans=-1;
+    TreeNode<int>* temp=root;
+    while(temp!=NULL){
+        if(temp->val==X){
+            ans=X;
+            break;
+        }
+        if(temp->val>X)temp=temp->left;
+        else{ans=max(temp->val,ans);
+            temp=temp->right;}
+    }
+    return ans;
+}
