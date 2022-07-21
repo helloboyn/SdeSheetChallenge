@@ -1,0 +1,10 @@
+class Solution
+{
+    public:
+    int kthLargest(Node *root, int& K)
+   {
+       if(!root) return 0;
+       int x = kthLargest(root->right, K);
+       return !K ? x : !--K ? root->data : kthLargest(root->left, K);
+   }
+};
