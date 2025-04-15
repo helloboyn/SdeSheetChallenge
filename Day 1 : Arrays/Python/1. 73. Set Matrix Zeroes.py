@@ -14,9 +14,11 @@ class Solution:
                     matrix[0][j] = 0  # Mark the column
 
         # Second pass: apply zeros based on flags, in reverse to avoid overwriting markers
-        for i in range(rows - 1, -1, -1):
-            for j in range(cols - 1, 0, -1):
+        for i in range(rows - 1, -1, -1):      # Start from the last row and go up
+            for j in range(cols - 1, 0, -1):   # Start from last column and go left, skip j=0
+                # If either the row or column is marked, set current cell to 0
                 if matrix[i][0] == 0 or matrix[0][j] == 0:
                     matrix[i][j] = 0
+            # After handling columns 1 to n-1, handle the first column separately
             if col0 == 0:
                 matrix[i][0] = 0
