@@ -1,0 +1,6 @@
+1. [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
+2. [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)
+3. [31. Next Permutation](https://leetcode.com/problems/next-permutation/)
+4. [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
+5. [75. Sort Colors](https://leetcode.com/problems/sort-colors/)
+6. [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
